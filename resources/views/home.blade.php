@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<h1>Dati da config/data.js: {{ $home }}</h1>
-<p>This is my paragraph content.</p>
-<button class="btn btn-primary">Cliccami</button>
+    <div class="container d-flex flex-wrap justify-content-center align-items-center mt-5 gap-3">
+        @foreach ($movies as $movie)
+            @include('partials.card' , ["title" => $movie->title, 'originalTitle' => $movie->original_title, 'nationality' => $movie->nationality, 'date' => $movie->date, 'vote' => $movie->vote])
+        @endforeach
+    </div>
 @endsection
